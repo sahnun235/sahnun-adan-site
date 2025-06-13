@@ -1,64 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sign Up - Sahnun Adan</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script>
-        // Firebase config placeholder
-        // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  <meta charset="UTF-8" />
+  <title>Sign Up - Sahnun Adan</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDno9I41m9y0ckb_ElMR2QpesdR-R3Afo0",
+      authDomain: "sahnun-adan-auth.firebaseapp.com",
+      projectId: "sahnun-adan-auth",
+      storageBucket: "sahnun-adan-auth.firebasestorage.app",
+      messagingSenderId: "218278416045",
+      appId: "1:218278416045:web:e3bc5dbcb350ad0b228024"
+    };
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDno9I41m9y0ckb_ElMR2QpesdR-R3Afo0",
-  authDomain: "sahnun-adan-auth.firebaseapp.com",
-  projectId: "sahnun-adan-auth",
-  storageBucket: "sahnun-adan-auth.firebasestorage.app",
-  messagingSenderId: "218278416045",
-  appId: "1:218278416045:web:e3bc5dbcb350ad0b228024"
-};
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-        };
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-        function signUp() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            auth.createUserWithEmailAndPassword(email, password)
-                .then(userCredential => {
-                    alert("Sign-up successful!");
-                })
-                .catch(error => {
-                    alert(error.message);
-                });
-        }
-    </script>
+    function signUp() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(userCredential => {
+          alert("Sign-up successful! You can now log in.");
+        })
+        .catch(error => {
+          alert("Error: " + error.message);
+        });
+    }
+  </script>
 </head>
 <body>
-    <header>
-        <h1>Sign Up</h1>
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="login.html">Login</a>
-        </nav>
-    </header>
-    <main>
-        <form onsubmit="event.preventDefault(); signUp();">
-            <label>Email:<br><input type="email" id="email" required></label><br><br>
-            <label>Password:<br><input type="password" id="password" required></label><br><br>
-            <button type="submit">Sign Up</button>
-        </form>
-    </main>
-    <footer>
-        <p>&copy; 2025 Sahnun Adan</p>
-    </footer>
+  <header>
+    <h1>Sign Up</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+  <main>
+    <form onsubmit="event.preventDefault(); signUp();">
+      <label>Email:<br><input type="email" id="email" required /></label><br><br>
+      <label>Password:<br><input type="password" id="password" required /></label><br><br>
+      <button type="submit">Sign Up</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2025 Sahnun Adan</p>
+  </footer>
 </body>
 </html>
